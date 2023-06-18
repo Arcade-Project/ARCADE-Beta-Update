@@ -17,7 +17,7 @@ info.addEventListener("click", () => {
     isDisplayed = false;
   } else {
     h3.style.visibility = "visible";
-    info.style.height = "180px";
+    info.style.height = "max-content";
     info.style.padding = "10px 10px 10px 15px";
     info.style.width = "180px";
     infoD.style.marginBottom = "5px";
