@@ -59,6 +59,18 @@ const links = document.querySelectorAll('a[href^="#"]');
 
 links.forEach((link) => {
   link.addEventListener("click", (event) => {
+    document.body.style.overflowY = "unset";
+    nav.classList.remove("nav-active");
+    btn_close.style.display = "none";
+    btn_menu.style.display = "flex";
+    btn_dl.style.display = "none";
+    sublist.style.display = "none";
+    logo.classList.remove("logofix");
+    navlinks.style.backgroundColor = "unset";
+    navlinks.style.right = "-100%";
+    navlinks.style.position = "unset";
+    navlinks.style.height = "40px";
+    exitArea.style.display = "none";
     event.preventDefault();
 
     const target = document.querySelector(link.getAttribute("href"));
