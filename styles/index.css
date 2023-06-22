@@ -98,6 +98,10 @@ section h1 {
 /* ---------------------------------------------------------------- */
 /* MEDIA QUERY */
 @media screen and (max-width: 740px) {
+  .version {
+    bottom: 1rem;
+    left: 1rem;
+  }
   .first li:first-child {
     font-size: 4.5em;
   }

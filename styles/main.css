@@ -331,6 +331,10 @@ i {
   .navlinks a:hover {
     color: var(--text-color);
   }
+  .scrollToTopButton {
+    bottom: 1rem;
+    right: 1rem;
+  }
 }
 @media screen and (max-width: 330px) {
   @keyframes borderPadding {
