@@ -69,7 +69,9 @@ info-b {
 #info img {
   cursor: pointer;
 }
-h3 {
+.info-title {
+  font-size: 1.18em;
+  font-weight: 800;
   margin-left: 5px;
   visibility: visible;
   display: flex;
@@ -85,9 +87,10 @@ close {
   animation: info-anim 0.4s ease-in-out;
 }
 info-b a {
-  border-bottom: solid var(--secondary-color) 2px;
+  color: white;
+  width: fit-content;
   display: inline-block;
-  color: var(--white);
+  border-bottom: solid var(--secondary-color) 2px;
 }
 info-b a::after {
   content: "";
@@ -95,6 +98,7 @@ info-b a::after {
   width: 0;
   height: 2px;
   background: var(--secondary-color);
+  transition: width 0.3s;
 }
 info-b a:hover::after {
   width: 100%;
