@@ -1,0 +1,32 @@
+{
+  "streaming": [
+      {
+          "name": "Sadisflix",
+          "link": "https://sadisflix.vip"
+      },
+      {
+          "name": "Element2",
+          "link": "http://exemple.com/element2"
+      }
+  ],
+  "categorie2": [
+      {
+          "name": "Element3",
+          "link": "http://exemple.com/element3"
+      },
+      {
+          "name": "Element4",
+          "link": "http://exemple.com/element4"
+      }
+  ],
+  "categorie3": [
+      {
+          "name": "Element5",
+          "link": "http://exemple.com/element5"
+      },
+      {
+          "name": "Element6",
+          "link": "http://exemple.com/element6"
+      }
+  ]
+}

@@ -61,8 +61,29 @@
     <div class="container">
         <h1>➯ Streaming ツ</h1>
         <link-grid>
-            <ul>
-                <li>~/online</li>
+        <script>
+            
+            async function fetchJson() {
+                const response = await fetch('data.json');
+                const json = await response.json();
+
+                console.log(json);
+
+                const online_ctn = document.querySelector('.online_ctn');
+                let HTML = online_ctn.innerHTML;
+
+                
+            }
+
+            
+            fetchJson().catch(error => console.log('Une erreur s\'est produite :', error));
+
+            
+
+        </script>
+        <li>~/online</li>
+            <ul class="online_ctn">
+                
                 <li><a target="_blank" href="https://www.wiflix.name/">Wiflix</a></li>
                 <li><a target="_blank" href="https://sadisflix.vip/">Sadisflix</a></li>
                 <li><a target="_blank" href="https://www.dulourd.uno/">Dulourd</a></li>
