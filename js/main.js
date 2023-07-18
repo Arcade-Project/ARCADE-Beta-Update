@@ -100,10 +100,19 @@ links.forEach((link) => {
 });
 
 scrollToTopButton.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+  const scrollToTop = () => {
+    if (window.scrollY > 0) {
+      const scrollStep = window.scrollY / 10; // Ajustez le diviseur pour contrôler la vitesse
+      window.scrollBy(0, -scrollStep); // Défilement vers le haut
+      if (window.scrollY === 0) return; // Arrête la récursion une fois en haut
+    } else if (window.scrollY < 0) {
+      const scrollStep = -window.scrollY / 10; // Ajustez le diviseur pour contrôler la vitesse
+      window.scrollBy(0, scrollStep); // Défilement vers le bas
+      if (window.scrollY >= 0) return; // Arrête la récursion une fois en bas
+    }
+    requestAnimationFrame(scrollToTop);
+  };
+  scrollToTop();
 });
 
 window.addEventListener("scroll", () => {
