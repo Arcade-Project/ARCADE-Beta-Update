@@ -244,7 +244,6 @@ img {
   background-color: var(--background-2);
   border-radius: 20px;
   width: auto;
-  /* height: calc(100vh - 100px); */
 }
 .markdown-content {
   font-family: "Inter";
@@ -252,27 +251,15 @@ img {
   overflow-y: scroll;
   color: white;
 
-  /* margin: auto 0 auto 0; */
-  margin-bottom: 10px;
-  padding: 1em 10em 1em 10em;
+  margin: 1em auto 1em auto;
+  padding-right: 1em;
 
-  /* width: 80%; */
-  max-height: 95%;
-  /* width: 50%; */
+  width: 80%;
+  max-height: calc(100% - 2em);
 
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* flex: 1; */
-  /* row-gap: 1em; */
-}
-.markdown-content::-webkit-scrollbar {
-  width: 10px;
-}
-.markdown-content::-webkit-scrollbar-track {
-  background: #222222;
-}
-.markdown-content::-webkit-scrollbar-thumb {
-  background-color: #3d3d3d;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
 }
 .line {
   border: none;
@@ -306,9 +293,37 @@ summary {
 }
 .exContent {
   margin-top: 1em;
-  /* display: none; */
 }
 h1 {
   font-size: 2.5em;
   font-weight: 600;
+}
+/* Scroll bar */
+.folders::-webkit-scrollbar {
+  width: 10px;
+}
+.folders::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background: #222222;
+}
+.folders::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #3d3d3d;
+}
+.markdown-content::-webkit-scrollbar {
+  width: 10px;
+}
+.markdown-content::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background: #222222;
+}
+.markdown-content::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #3d3d3d;
+}
+/* ---------------------------------------------------------- */
+@media screen and (max-width: 820px) {
+  .sublist {
+    display: none;
+  }
 }
