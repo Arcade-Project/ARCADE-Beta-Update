@@ -1,13 +1,69 @@
 {
   "streaming": [
       {
-          "name": "Sadisflix",
-          "link": "https://sadisflix.vip"
-      },
-      {
-          "name": "Element2",
-          "link": "http://exemple.com/element2"
-      }
+        "title": "➯ Streaming ツ",
+        "info": "You don't have to pay to access the sites. Some use fake players and fraudulent redirects due to their free hosting. Use an ad blocker to remedy. <a target=\"_blank\" href=\"#\">ad block link </a><br><br>These sites are illegal so you are entirely responsible for their use.",
+        "content" : [
+            {
+                "title": "~/online",
+                "links": [
+                  {
+                      "name": "Sadisflix",
+                      "link": "https://sadisflix.vip/"
+                  },
+                  {
+                      "name": "Wiflix",
+                      "link": "https://www.wiflix.name/"
+                  },
+                  {
+                      "name": "Dulourd",
+                      "link": "https://www.dulourd.uno/"
+                  },
+                  {
+                      "name": "Streamdeouf",
+                      "link": "https://www.streamdeouf.uno/"
+                  },
+                  {
+                      "name": "Cineplateforme",
+                      "link": "https://www.cineplateforme.cc/"
+                  },
+                  {
+                      "name": "NovaFlix",
+                      "link": "https://www.novaflix.uno/"
+                  },
+                  {
+                      "name": "CpasFini",
+                      "link": "https://www.cpasfini.me/"
+                  },
+                  {
+                      "name": "Alloflix",
+                      "link": "https://www.alloflix.vin/"
+                  }
+                ]
+            },
+            {
+                "title": "~/download",
+                "links": [
+                  {
+                      "name": "Darkino",
+                      "link": "https://www2.darkino.net/"
+                  },
+                  {
+                      "name": "YggTorrent",
+                      "link": "https://yggtorrent.do/"
+                  },
+                  {
+                      "name": "Wawacity",
+                      "link": "https://www.wawacity.quest/"
+                  },
+                  {
+                      "name": "CpasBien",
+                      "link": "https://www.cpasbien.sk/"
+                  }
+                ]
+            }
+        ]
+    }
   ],
   "categorie2": [
       {

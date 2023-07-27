@@ -4,7 +4,7 @@
 <head>
     <title>Arcade Streaming</title>
     <!-- links -->
-    <link rel="stylesheet" href="styles/streaming.css">
+    <link rel="stylesheet" href="../../styles/posts.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/fonts.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -39,27 +39,6 @@
     <script src="../../js/info.js" defer></script>
 </head>
 
-<script>
-
-    async function fetchJson() {
-        const response = await fetch('data.json');
-        const json = await response.json();
-
-        console.log(json);
-
-        const online_ctn = document.querySelector('.online_ctn');
-        let HTML = online_ctn.innerHTML;
-
-
-    }
-
-
-    fetchJson().catch(error => console.log('Une erreur s\'est produite :', error));
-
-
-
-</script>
-
 <body>
     <nav>
         <ul class="navlinks">
@@ -79,12 +58,16 @@
         <div class="exit-area"></div>
     </nav>
 
+    <section>
+
+    </section>
+
     <div class="container">
         <h1>➯ Streaming ツ</h1>
         <link-grid>
-            <ul class="online_ctn">
-                <span>~/online</span>
-                <li><a target="_blank" href="https://www.wiflix.name/"></a></li>
+            <ul>
+                <div>~/online</div>
+                <li><a target="_blank" href="https://www.wiflix.name/">Wiflix</a></li>
                 <li><a target="_blank" href="https://sadisflix.vip/">Sadisflix</a></li>
                 <li><a target="_blank" href="https://www.dulourd.uno/">Dulourd</a></li>
                 <li><a target="_blank" href="https://www.streamdeouf.uno/">Streamdeouf</a></li>
@@ -95,7 +78,7 @@
                 <li><a target="_blank" href="https://www.alloflix.vin/">Alloflix</a></li>
             </ul>
             <ul>
-                <span>~/download</span>
+                <div>~/download</div>
                 <li><a target="_blank" href="https://www2.darkino.net/">Darkino</a></li>
                 <li><a target="_blank" href="https://yggtorrent.do/">Yggtorrent</a></li>
                 <li><a target="_blank" href="https://www.wawacity.quest/">Wawacity</a></li>

@@ -1,0 +1,47 @@
+:root {
+  --white: #ffffff;
+  --text-desc: #8b8b8b;
+  --selection: #8400ff9f;
+  --primary-color: #5c14e1;
+  --secondary-color: #ff322f;
+  --dark-grey: #3f3f3f;
+  --light-grey: #616161;
+  --grey: #a0a0a0;
+  --purple-background: #140d21;
+  --background-color: #000000;
+  --background-2: #111111;
+  --background-3: #292929;
+}
+.markdown-content {
+  font-family: "Inter";
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+hr {
+  background-color: red;
+}
+.line {
+  border: none;
+  border-top: 1px solid var(--background-3);
+  margin: 10px 0;
+}
+.callout {
+  background-color: #494949;
+  border-left: 4px solid #1e90ff;
+  padding: 10px;
+  margin: 10px 0;
+}
+.expandable {
+  color: white;
+  display: flex;
+}
+.exTitle {
+  color: var(--primary-color);
+}
+.exContent {
+  display: none;
+}
