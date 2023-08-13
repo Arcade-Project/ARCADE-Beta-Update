@@ -24,7 +24,26 @@ fetch(data)
   .then((markdown) => {
     const html = marked(markdown);
     markdownContent.innerHTML = html;
-  });
 
-const expandable = markdownContent.querySelector(".expandable");
-console.log(expandable);
+    const summary = document.querySelectorAll("summary");
+
+    summary.forEach((summary) => {
+      const svgHTML =
+        '<div class="svgCnt"><svg class="arrowSvgSummary" width="14" height="18" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#5c14e1" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square" /></svg></div>';
+      summary.insertAdjacentHTML("beforeend", svgHTML);
+
+      const detailsElements = document.querySelectorAll("details");
+
+      detailsElements.forEach((detailsElement) => {
+        const arrowSvgSummary =
+          detailsElement.querySelector(".arrowSvgSummary");
+        detailsElement.addEventListener("toggle", (details) => {
+          if (details.target.open) {
+            arrowSvgSummary.style.transform = "rotate(90deg)";
+          } else {
+            arrowSvgSummary.style.transform = "none";
+          }
+        });
+      });
+    });
+  });

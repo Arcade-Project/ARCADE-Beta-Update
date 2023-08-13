@@ -31,10 +31,6 @@ section h1 {
   max-width: 30em;
   color: var(--grey);
 }
-.first span:hover {
-  position: absolute;
-  opacity: 0;
-}
 .about div {
   font-size: 1.5em;
 }
