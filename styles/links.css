@@ -167,7 +167,7 @@ i {
   /* background-color: red; */
   padding-right: 10px;
   max-height: 92%;
-  overflow-y: scroll;
+  overflow-y: auto;
   white-space: nowrap;
   margin-top: 1em;
 }
@@ -248,7 +248,7 @@ img {
 .markdown-content {
   font-family: "Inter";
 
-  overflow-y: scroll;
+  overflow-y: auto;
   color: white;
 
   margin: 1em auto 1em auto;
