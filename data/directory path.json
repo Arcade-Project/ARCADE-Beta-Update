@@ -1,0 +1,8 @@
+{
+    "OSINT": "/data/informatics/osint.md",
+    "Application": "/data/informatics/application.md",
+    "Security": "/data/informatics/security.md",
+    "Games": "/data/informatics/games.md",
+    "Upload": "/data/informatics/upload.md",
+    "${code}": "/data/informatics/application.md"
+}

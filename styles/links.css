@@ -230,7 +230,16 @@ i {
   transform: rotate(90deg);
   transition: all 0.2s;
 }
-
+.titleActive {
+  background-color: var(--purple-background);
+  color: var(--primary-color);
+}
+.titleActive .arrowSvg path {
+  stroke: var(--primary-color);
+}
+.titleActive:hover {
+  background-color: var(--purple-background);
+}
 img {
   width: 100%;
   height: 100%;
@@ -267,7 +276,7 @@ img {
   margin: 10px 10px 10px 0;
   background-color: var(--background-2);
   border-radius: 20px;
-  width: auto;
+  width: 100%;
 }
 .markdown-content {
   font-family: "Inter";
