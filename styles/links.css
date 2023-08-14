@@ -236,7 +236,32 @@ img {
   height: 100%;
 }
 
+/* Scroll bar */
+.folders::-webkit-scrollbar {
+  width: 10px;
+}
+.folders::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background: #222222;
+}
+.folders::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #3d3d3d;
+}
+.markdown-content::-webkit-scrollbar {
+  width: 10px;
+}
+.markdown-content::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background: #222222;
+}
+.markdown-content::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #3d3d3d;
+}
+/* ---------------------------------------------------------- */
 /* MarkDown */
+/* ---------------------------------------------------------- */
 
 .contents {
   margin: 10px 10px 10px 0;
@@ -260,6 +285,7 @@ img {
   flex-direction: column;
   row-gap: 1em;
 }
+
 .line {
   border: none;
   border-top: 1px solid var(--background-3);
@@ -299,30 +325,39 @@ h1 {
   font-size: 2.5em;
   font-weight: 600;
 }
-/* Scroll bar */
-.folders::-webkit-scrollbar {
-  width: 10px;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-.folders::-webkit-scrollbar-track {
-  border-radius: 20px;
-  background: #222222;
+th,
+td {
+  padding: 0.2em;
+  border: solid 1px var(--background-3);
 }
-.folders::-webkit-scrollbar-thumb {
-  border-radius: 20px;
-  background-color: #3d3d3d;
-}
-.markdown-content::-webkit-scrollbar {
-  width: 10px;
-}
-.markdown-content::-webkit-scrollbar-track {
-  border-radius: 20px;
-  background: #222222;
-}
-.markdown-content::-webkit-scrollbar-thumb {
-  border-radius: 20px;
-  background-color: #3d3d3d;
+thead tr,
+th {
+  background-color: #1d1d1d;
 }
 
+.markdown-content a {
+  color: var(--primary-color);
+  width: fit-content;
+  font-style: italic;
+  display: inline-block;
+}
+.markdown-content a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s;
+}
+.markdown-content a:hover::after {
+  width: 100%;
+}
+/* ---------------------------------------------------------- */
+/* Responsive */
 /* ---------------------------------------------------------- */
 @media screen and (max-width: 1100px) {
   .markdown-content {
