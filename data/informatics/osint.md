@@ -13,7 +13,7 @@ Whether you're a seasoned expert or an enthusiastic beginner, we encourage you t
 
 ## Introduction
 
-<span style="color: var(--primary-color);">**O**</span>pen-<span style="color: var(--primary-color);">**S**</span>ource <span style="color: var(--primary-color);">**Int**</span>elligence (OSINT) refers to the practice of collecting, analyzing and using information from publicly available sources to gather intelligence and information.
+<color-p>**O**</color-p>pen-<color-p>**S**</color-p>ource <color-p>**Int**</color-p>elligence (OSINT) refers to the practice of collecting, analyzing and using information from publicly available sources to gather intelligence and information.
 
 This approach involves access to a wide range of data, including online publications, social media, government reports, public archives and other freely accessible resources.
 

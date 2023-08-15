@@ -43,9 +43,10 @@ titleFolder.forEach((title) => {
     const subFolder = parentFolder.querySelector(".subFolder");
 
     parentFolder.classList.toggle("active");
-
-    title.classList.toggle("titleActive");
-
+    titleFolder.forEach((title) => {
+      title.classList.remove("titleActive");
+    });
+    title.classList.add("titleActive");
     if (subFolder.style.display === "flex") {
       subFolder.style.display = "none";
     } else {
@@ -63,8 +64,11 @@ const subFolders = document.querySelectorAll(".subFolder div");
 
 subFolders.forEach((subFolder) => {
   subFolder.addEventListener("click", () => {
+    subFolders.forEach((subFolder) => {
+      subFolder.classList.remove("subFolderActive");
+    });
+    subFolder.classList.add("subFolderActive");
     // title.classList.toggle("titleActive");
-    console.log(subFolder);
 
     const content = subFolder.textContent.toLowerCase();
     const p1 = subFolder.parentElement;

@@ -217,7 +217,9 @@ i {
 .subFolder div:hover {
   background-color: var(--background-3);
 }
-
+.subFolderActive {
+  background-color: var(--background-3);
+}
 /* Active Class */
 .folderFocus {
   color: var(--primary-color);
@@ -300,11 +302,9 @@ img {
   border-top: 1px solid var(--background-3);
   margin: 10px 0;
 }
-.callout {
-  background-color: #494949;
-  border-left: 4px solid #1e90ff;
-  padding: 10px;
-  margin: 10px 0;
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding: 5px 5px 5px 10px;
 }
 details {
   color: white;
@@ -346,6 +346,9 @@ td {
 thead tr,
 th {
   background-color: #1d1d1d;
+}
+color-p {
+  color: var(--primary-color);
 }
 
 .markdown-content a {
