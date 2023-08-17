@@ -1,11 +1,28 @@
-const md = (d) => {
-  const markdownContent = document.querySelector(".markdown-content");
+const addBlankTargetToLinks = () => {
+  const container = document.querySelector(".markdown-content");
 
+  if (container) {
+    const links = container.querySelectorAll("a");
+
+    links.forEach((link) => {
+      link.setAttribute("target", "_blank");
+    });
+  }
+};
+
+// --------------------------------------------------------------------
+// ------------------------- Target Blank -----------------------------
+// --------------------------------------------------------------------
+
+const markdownContent = document.querySelector(".markdown-content");
+const md = (d) => {
   fetch(d)
     .then((response) => response.text())
     .then((markdown) => {
       const html = marked.parse(markdown);
       markdownContent.innerHTML = html;
+
+      addBlankTargetToLinks();
 
       const summary = document.querySelectorAll("summary");
 
@@ -36,25 +53,25 @@ const md = (d) => {
 // --------------------------------------------------------------------
 
 const hButton = document.querySelector(".hButton");
+const hButtonClose = document.querySelector(".hButtonClose");
 const summary = document.querySelector(".summary");
 const mdContent = document.querySelector(".contents");
 
-let isContentVisible = true;
-
 hButton.addEventListener("click", () => {
-  if (isContentVisible) {
-    mdContent.style.display = "none";
-    summary.style.display = "block";
-    summary.style.margin = "10px";
-    summary.style.width = "100%";
-  } else {
-    mdContent.style.display = "block";
-    summary.style.display = "none";
-    summary.style.margin = "10px 0 10px 10px";
-    summary.style.width = "unset";
-  }
-
-  isContentVisible = !isContentVisible; // Inverser l'état
+  mdContent.style.display = "none";
+  summary.style.display = "block";
+  summary.style.margin = "10px";
+  summary.style.width = "100%";
+  hButton.style.display = "none";
+  hButtonClose.style.display = "block";
+});
+hButtonClose.addEventListener("click", () => {
+  mdContent.style.display = "block";
+  summary.style.display = "none";
+  summary.style.margin = "10px 0 10px 10px";
+  summary.style.width = "unset";
+  hButton.style.display = "block";
+  hButtonClose.style.display = "none";
 });
 
 // --------------------------------------------------------------------
@@ -82,6 +99,12 @@ titleFolder.forEach((title) => {
 md("/data/welcome.md");
 const welcome = document.querySelector("#summary h1");
 welcome.addEventListener("click", () => {
+  mdContent.style.display = "block";
+  summary.style.display = "none";
+  summary.style.margin = "10px 0 10px 10px";
+  summary.style.width = "unset";
+  hButtonClose.style.display = "none";
+  hButton.style.display = "block";
   md("/data/welcome.md");
 });
 const subFolders = document.querySelectorAll(".subFolder div");
@@ -92,7 +115,15 @@ subFolders.forEach((subFolder) => {
       subFolder.classList.remove("subFolderActive");
     });
     subFolder.classList.add("subFolderActive");
-    // title.classList.toggle("titleActive");
+
+    if (window.innerWidth <= 768) {
+      mdContent.style.display = "block";
+      summary.style.display = "none";
+      summary.style.margin = "10px 0 10px 10px";
+      summary.style.width = "unset";
+      hButtonClose.style.display = "none";
+      hButton.style.display = "block";
+    }
 
     const content = subFolder.textContent.toLowerCase();
     const p1 = subFolder.parentElement;

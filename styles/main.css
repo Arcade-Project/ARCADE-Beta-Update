@@ -310,6 +310,12 @@ i {
     background-color: none;
     transition: right 0.25s;
   }
+  .navlinks-active {
+    background-color: #353535;
+    position: fixed;
+    right: 0;
+    height: 100%;
+  }
   .sublist {
     position: fixed;
     right: -100%;
