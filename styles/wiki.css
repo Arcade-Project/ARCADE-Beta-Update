@@ -95,11 +95,7 @@ nav {
   background-color: #292929;
 }
 
-.btn-menu {
-  display: none;
-  cursor: pointer;
-}
-.btn-close {
+.hButton {
   display: none;
   cursor: pointer;
 }
@@ -153,10 +149,11 @@ i {
   background-color: var(--background-2);
 
   min-width: 14em;
+  width: 100%;
   border-radius: 20px;
 
   padding: 20px;
-  margin: 10px;
+  margin: 10px 0 10px 10px;
 
   user-select: none;
 }
@@ -275,7 +272,7 @@ img {
 /* ---------------------------------------------------------- */
 
 .contents {
-  margin: 10px 10px 10px 0;
+  margin: 10px;
   background-color: var(--background-2);
   border-radius: 20px;
   width: 100%;
@@ -297,9 +294,8 @@ img {
   row-gap: 1em;
 }
 
-.line {
-  border: none;
-  border-top: 1px solid var(--background-3);
+hr {
+  border: 1px solid var(--background-3);
   margin: 10px 0;
 }
 blockquote {
@@ -350,6 +346,16 @@ th {
 color-p {
   color: var(--primary-color);
 }
+.markdown-content img {
+  border-radius: 20px;
+}
+code {
+  display: block;
+  width: auto;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: var(--background-3);
+}
 
 .markdown-content a {
   color: var(--primary-color);
@@ -377,8 +383,22 @@ color-p {
     width: 80%;
   }
 }
-@media screen and (max-width: 820px) {
+/* @media screen and (max-width: 820px) {
   .sublist {
     display: none;
+  }
+} */
+@media screen and (max-width: 780px) {
+  .summary {
+    display: none;
+  }
+  .sublist > *:nth-child(-n + 4) {
+    display: none;
+  }
+  .hButton {
+    display: block;
+  }
+  .hButton path {
+    fill: white;
   }
 }
