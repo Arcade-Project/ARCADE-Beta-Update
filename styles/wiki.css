@@ -15,7 +15,6 @@
 * {
   list-style: none;
   text-decoration: none;
-  padding: 0;
   margin: 0;
 }
 body {
@@ -300,8 +299,8 @@ summary {
 details > :not(summary) {
   margin-top: 1em;
 }
-h1 {
-  font-size: 2.5em;
+.markdown-content h1 {
+  font-size: 1.9em;
   font-weight: 600;
 }
 table {
@@ -330,11 +329,24 @@ code {
   border-radius: 10px;
   background-color: var(--background-3);
 }
-
+.markdown-content ul:not(ul ul) {
+  padding: 0;
+}
+.markdown-content li {
+  list-style: inside;
+  padding: unset;
+}
+.markdown-content li::marker {
+  color: #474747;
+}
+.markdown-content ul ul {
+  border-left: solid 1px var(--background-3);
+  margin: 0;
+}
 .markdown-content a {
   color: var(--primary-color);
   width: fit-content;
-  font-style: italic;
+  font-weight: bold;
   display: inline-block;
 }
 .markdown-content a::after {
