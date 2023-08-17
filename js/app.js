@@ -99,12 +99,14 @@ titleFolder.forEach((title) => {
 md("/data/welcome.md");
 const welcome = document.querySelector("#summary h1");
 welcome.addEventListener("click", () => {
-  mdContent.style.display = "block";
-  summary.style.display = "none";
-  summary.style.margin = "10px 0 10px 10px";
-  summary.style.width = "unset";
-  hButtonClose.style.display = "none";
-  hButton.style.display = "block";
+  if (window.innerWidth <= 768) {
+    mdContent.style.display = "block";
+    summary.style.display = "none";
+    summary.style.margin = "10px 0 10px 10px";
+    summary.style.width = "unset";
+    hButtonClose.style.display = "none";
+    hButton.style.display = "block";
+  }
   md("/data/welcome.md");
 });
 const subFolders = document.querySelectorAll(".subFolder div");
