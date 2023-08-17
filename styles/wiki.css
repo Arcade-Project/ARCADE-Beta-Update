@@ -99,47 +99,16 @@ nav {
   display: none;
   cursor: pointer;
 }
+.searchButton {
+  display: none;
+}
 .exit-area {
   display: none;
-}
-/* Scroll To Top Button */
-.scrollToTopButton {
-  display: none;
-  cursor: pointer;
-  font-size: 2rem;
-  line-height: 4rem;
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  text-align: center;
-  height: 4rem;
-  width: 4rem;
-  border-radius: 99rem;
-  background-color: #222222c0;
-  animation: TopButtom 0.25s ease-in-out;
-}
-.scrollToTopButton:hover {
-  background-color: #646669;
-}
-.scrollToTopButton:hover i {
-  color: #222222c0;
-}
-i {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  color: #646669;
-  line-height: 32px;
-  text-align: center;
 }
 /* Summary */
 
 .container-wrapper {
   display: flex;
-  /* min-height: calc(100vh - 76px); */
   height: calc(100vh - 76px);
 }
 
@@ -149,7 +118,6 @@ i {
   background-color: var(--background-2);
 
   min-width: 14em;
-  width: 100%;
   border-radius: 20px;
 
   padding: 20px;
@@ -396,6 +364,9 @@ code {
     display: none;
   }
   .hButton {
+    display: block;
+  }
+  .searchButton {
     display: block;
   }
   .hButton path {

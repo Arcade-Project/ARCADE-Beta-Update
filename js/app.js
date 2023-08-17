@@ -32,9 +32,34 @@ const md = (d) => {
 };
 
 // --------------------------------------------------------------------
-// --------------------------- Fonction -------------------------------
+// ------------------------- Hamburger Menu ---------------------------
 // --------------------------------------------------------------------
 
+const hButton = document.querySelector(".hButton");
+const summary = document.querySelector(".summary");
+const mdContent = document.querySelector(".contents");
+
+let isContentVisible = true;
+
+hButton.addEventListener("click", () => {
+  if (isContentVisible) {
+    mdContent.style.display = "none";
+    summary.style.display = "block";
+    summary.style.margin = "10px";
+    summary.style.width = "100%";
+  } else {
+    mdContent.style.display = "block";
+    summary.style.display = "none";
+    summary.style.margin = "10px 0 10px 10px";
+    summary.style.width = "unset";
+  }
+
+  isContentVisible = !isContentVisible; // Inverser l'état
+});
+
+// --------------------------------------------------------------------
+// ----------------------------- Folder -------------------------------
+// --------------------------------------------------------------------
 const titleFolder = document.querySelectorAll(".titleFolder");
 
 titleFolder.forEach((title) => {
@@ -56,7 +81,6 @@ titleFolder.forEach((title) => {
 });
 md("/data/welcome.md");
 const welcome = document.querySelector("#summary h1");
-console.log(welcome);
 welcome.addEventListener("click", () => {
   md("/data/welcome.md");
 });
