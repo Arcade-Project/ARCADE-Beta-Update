@@ -74,12 +74,12 @@ nav {
   display: flex;
   gap: 1.5em;
   align-items: center;
+  max-height: 30px;
 }
 /* Styles pour la barre de recherche */
 .search-form {
   display: flex;
   align-items: center;
-  /* background-color: red; */
 }
 
 .search-form input[type="text"] {
@@ -97,12 +97,19 @@ nav {
 .hButton {
   display: none;
   cursor: pointer;
-  width: 34px;
+  height: 30px;
+  width: 30px;
+}
+.hButton svg,
+.hButtonClose svg {
+  width: 100%;
+  height: 100%;
 }
 .hButtonClose {
   display: none;
   cursor: pointer;
-  width: 34px;
+  height: 30px;
+  width: 30px;
 }
 .searchButton {
   display: none;
@@ -114,7 +121,7 @@ nav {
 
 .container-wrapper {
   display: flex;
-  height: calc(100vh - 76px);
+  height: calc(100vh - 72px);
 }
 
 .summary {
@@ -135,7 +142,7 @@ nav {
 }
 .folders {
   padding-right: 10px;
-  max-height: 92%;
+  height: calc(100% - 100px);
   overflow-y: auto;
   white-space: nowrap;
   margin-top: 1em;
@@ -212,9 +219,21 @@ nav {
 .titleActive:hover {
   background-color: var(--purple-background);
 }
-img {
+.downloadBtn button {
+  color: var(--primary-color);
+  font-size: 1.2em;
+  font-weight: 700;
+  line-height: normal;
+
+  margin: 10px 0;
+  padding: 1em;
+  border: none;
+
   width: 100%;
-  height: 100%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 18px 0px #15092d,
+    0px 0px 18px 2px rgba(21, 9, 45, 0.77) inset;
+  background-color: var(--purple-background);
 }
 
 /* Scroll bar */
@@ -320,6 +339,7 @@ color-p {
   color: var(--primary-color);
 }
 .markdown-content img {
+  width: 100%;
   border-radius: 20px;
 }
 code {
