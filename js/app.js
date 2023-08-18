@@ -1,49 +1,47 @@
-// Fonction pour mettre à jour le contenu et les éléments de la page
-const updatePage = (content) => {
-  mdContent.style.display = "block";
-  summary.style.display = "none";
-  summary.style.margin = "10px 0 10px 10px";
-  summary.style.width = "unset";
-  hButtonClose.style.display = "none";
-  hButton.style.display = "block";
+// // Fonction pour mettre à jour le contenu et les éléments de la page
+// const updatePage = (content) => {
+//   mdContent.style.display = "block";
+//   summary.style.display = "none";
+//   summary.style.margin = "10px 0 10px 10px";
+//   summary.style.width = "unset";
+//   hButtonClose.style.display = "none";
+//   hButton.style.display = "block";
 
-  // Charger le contenu correspondant
-  md(`/data/${content}.md`);
+//   // Charger le contenu correspondant
+//   md(`/data/${content}.md`);
 
-  // Mettre à jour les classes actives, etc.
-  // ...
-};
+//   // Mettre à jour les classes actives, etc.
+//   // ...
+// };
 
-// Lors du chargement de la page
-window.addEventListener("load", () => {
-  // Obtenir le paramètre "content" de l'URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const content = urlParams.get("content");
+// // Lors du chargement de la page
+// window.addEventListener("load", () => {
+//   // Obtenir le paramètre "content" de l'URL
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const content = urlParams.get("content");
 
-  // Si le paramètre "content" est présent, mettre à jour la page
-  if (content) {
-    updatePage(content);
-  }
-});
+//   // Si le paramètre "content" est présent, mettre à jour la page
+//   if (content) {
+//     updatePage(content);
+//   }
+// });
 
 // ---------------
 const addBlankTargetToLinks = () => {
   const container = document.querySelector(".markdown-content");
 
-  if (container) {
-    const links = container.querySelectorAll("a");
+  const links = container.querySelectorAll("a");
 
-    links.forEach((link) => {
+  links.forEach((link) => {
+    if (link.getAttribute("target") !== "_parent") {
       link.setAttribute("target", "_blank");
-    });
-  }
+    }
+  });
 };
 
 // --------------------------------------------------------------------
 // ------------------------- Target Blank -----------------------------
 // --------------------------------------------------------------------
-
-console.log(window.innerWidth);
 
 const markdownContent = document.querySelector(".markdown-content");
 const md = (d) => {

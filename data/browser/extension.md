@@ -18,4 +18,6 @@ So here are a few tips for smooth, distraction-free browsing.
 
 To fix this, you can install AdGuard AdBlocker. [( Chromium )](https://chrome.google.com/webstore/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg) [( Firefox )](https://addons.mozilla.org/en-US/firefox/addon/adguard-adblocker/)
 
+<!-- <a href="test" target="_parent">Phone</a> -->
+
 ### Customization extensions
