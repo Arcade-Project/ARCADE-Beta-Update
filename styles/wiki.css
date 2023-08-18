@@ -353,12 +353,23 @@ code {
 }
 .markdown-content li {
   list-style: inside;
-  padding: unset;
 }
+.markdown-content li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.markdown-content ol {
+  padding-left: 1.5em;
+}
+.markdown-content ol li {
+  list-style: decimal;
+}
+
 .markdown-content li::marker {
   color: #474747;
 }
-.markdown-content ul ul {
+.markdown-content ul ul,
+.markdown-content ol ol {
   border-left: solid 1px var(--background-3);
   margin: 0;
 }
