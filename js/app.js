@@ -14,6 +14,8 @@ const addBlankTargetToLinks = () => {
 // ------------------------- Target Blank -----------------------------
 // --------------------------------------------------------------------
 
+console.log(window.innerWidth);
+
 const markdownContent = document.querySelector(".markdown-content");
 const md = (d) => {
   fetch(d)
@@ -99,7 +101,7 @@ titleFolder.forEach((title) => {
 md("/data/welcome.md");
 const welcome = document.querySelector("#summary h1");
 welcome.addEventListener("click", () => {
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 780) {
     mdContent.style.display = "block";
     summary.style.display = "none";
     summary.style.margin = "10px 0 10px 10px";
@@ -118,7 +120,7 @@ subFolders.forEach((subFolder) => {
     });
     subFolder.classList.add("subFolderActive");
 
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 780) {
       mdContent.style.display = "block";
       summary.style.display = "none";
       summary.style.margin = "10px 0 10px 10px";
@@ -137,4 +139,19 @@ subFolders.forEach((subFolder) => {
     let data = `/data/${title}/${content}.md`;
     md(data);
   });
+});
+
+const reloadFromServer = () => {
+  location.reload(true);
+};
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth < 780) {
+    window.addEventListener("resize", function checkWidth() {
+      if (window.innerWidth >= 780) {
+        reloadFromServer();
+        window.removeEventListener("resize", checkWidth);
+      }
+    });
+  }
 });

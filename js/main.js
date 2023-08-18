@@ -123,4 +123,19 @@ window.addEventListener("scroll", () => {
   }
 });
 
+const reloadFromServer = () => {
+  location.reload(true);
+};
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth < 740) {
+    window.addEventListener("resize", function checkWidth() {
+      if (window.innerWidth >= 740) {
+        reloadFromServer();
+        window.removeEventListener("resize", checkWidth);
+      }
+    });
+  }
+});
+
 console.log("page is fully loaded");
