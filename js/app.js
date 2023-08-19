@@ -1,17 +1,5 @@
-const addBlankTargetToLinks = () => {
-  const container = document.querySelector(".markdown-content");
-
-  const links = container.querySelectorAll("a");
-
-  links.forEach((link) => {
-    if (link.getAttribute("target") !== "_parent") {
-      link.setAttribute("target", "_blank");
-    }
-  });
-};
-
 // --------------------------------------------------------------------
-// ------------------------- Target Blank -----------------------------
+// ---------------------------- Fonction ------------------------------
 // --------------------------------------------------------------------
 
 const markdownContent = document.querySelector(".markdown-content");
@@ -47,6 +35,40 @@ const md = (d) => {
       });
     });
 };
+// --------------------------------------------
+const reloadFromServer = () => {
+  location.reload(true);
+};
+// --------------------------------------------
+const addBlankTargetToLinks = () => {
+  const container = document.querySelector(".markdown-content");
+
+  const links = container.querySelectorAll("a");
+
+  links.forEach((link) => {
+    if (link.getAttribute("target") !== "_parent") {
+      link.setAttribute("target", "_blank");
+    }
+  });
+};
+// --------------------------------------------
+const toggleMarkdownView = (action) => {
+  if (action === "show") {
+    mdContent.style.display = "none";
+    summary.style.display = "block";
+    summary.style.margin = "10px";
+    summary.style.width = "100%";
+    hButton.style.display = "none";
+    hButtonClose.style.display = "block";
+  } else if (action === "hide") {
+    mdContent.style.display = "block";
+    summary.style.display = "none";
+    summary.style.margin = "10px 0 10px 10px";
+    summary.style.width = "unset";
+    hButton.style.display = "block";
+    hButtonClose.style.display = "none";
+  }
+};
 
 // --------------------------------------------------------------------
 // ------------------------- Hamburger Menu ---------------------------
@@ -58,20 +80,10 @@ const summary = document.querySelector(".summary");
 const mdContent = document.querySelector(".contents");
 
 hButton.addEventListener("click", () => {
-  mdContent.style.display = "none";
-  summary.style.display = "block";
-  summary.style.margin = "10px";
-  summary.style.width = "100%";
-  hButton.style.display = "none";
-  hButtonClose.style.display = "block";
+  toggleMarkdownView("show");
 });
 hButtonClose.addEventListener("click", () => {
-  mdContent.style.display = "block";
-  summary.style.display = "none";
-  summary.style.margin = "10px 0 10px 10px";
-  summary.style.width = "unset";
-  hButton.style.display = "block";
-  hButtonClose.style.display = "none";
+  toggleMarkdownView("hide");
 });
 
 // --------------------------------------------------------------------
@@ -100,12 +112,7 @@ md("/data/welcome.md");
 const welcome = document.querySelector("#summary h1");
 welcome.addEventListener("click", () => {
   if (window.innerWidth <= 780) {
-    mdContent.style.display = "block";
-    summary.style.display = "none";
-    summary.style.margin = "10px 0 10px 10px";
-    summary.style.width = "unset";
-    hButtonClose.style.display = "none";
-    hButton.style.display = "block";
+    toggleMarkdownView("hide");
   }
   md("/data/welcome.md");
 });
@@ -119,12 +126,7 @@ subFolders.forEach((subFolder) => {
     subFolder.classList.add("subFolderActive");
 
     if (window.innerWidth <= 780) {
-      mdContent.style.display = "block";
-      summary.style.display = "none";
-      summary.style.margin = "10px 0 10px 10px";
-      summary.style.width = "unset";
-      hButtonClose.style.display = "none";
-      hButton.style.display = "block";
+      toggleMarkdownView("hide");
     }
 
     const content = subFolder.textContent.toLowerCase();
@@ -138,10 +140,6 @@ subFolders.forEach((subFolder) => {
     md(data);
   });
 });
-
-const reloadFromServer = () => {
-  location.reload(true);
-};
 
 window.addEventListener("resize", () => {
   if (window.innerWidth < 780) {
