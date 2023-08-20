@@ -294,7 +294,7 @@ nav {
 .markdown-content {
   font-family: "Inter";
 
-  overflow-y: auto;
+  overflow-y: scroll;
   color: white;
 
   margin: 1em auto 1em auto;
@@ -386,6 +386,10 @@ code {
 }
 .markdown-content ol li {
   list-style: decimal;
+}
+.disclaimer {
+  border-left: 4px solid var(--secondary-color);
+  padding: 5px 5px 5px 10px;
 }
 
 .markdown-content li::marker {
