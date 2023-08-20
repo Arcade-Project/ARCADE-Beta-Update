@@ -80,79 +80,43 @@
         <div class="summary" id="summary">
             <h1>⚜️ Welcome</h1>
             <div class="folders">
-                <div class="folder">
-                    <div class="titleFolder">Informatics<svg class="arrowSvg" width="8" height="12" viewBox="0 0 8 12"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
-                                stroke-miterlimit="10" stroke-linecap="square" />
-                        </svg>
-                    </div>
-                    <div class="subFolder">
-                        <div id="osint">OSINT</div>
-                        <div>Application</div>
-                        <div>Security</div>
-                        <div>Games</div>
-                        <div>Upload</div>
-                        <div>${code}</div>
-                    </div>
-                </div>
-                <div class="folder">
-                    <div class="titleFolder">Video / Picture<svg class="arrowSvg" width="8" height="12"
-                            viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
-                                stroke-miterlimit="10" stroke-linecap="square" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="folder">
-                    <div class="titleFolder">Graphics<svg class="arrowSvg" width="8" height="12" viewBox="0 0 8 12"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
-                                stroke-miterlimit="10" stroke-linecap="square" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="folder">
-                    <div class="titleFolder">Music<svg class="arrowSvg" width="8" height="12" viewBox="0 0 8 12"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
-                                stroke-miterlimit="10" stroke-linecap="square" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="folder">
-                    <div class="titleFolder">Browser<svg class="arrowSvg" width="8" height="12" viewBox="0 0 8 12"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
-                                stroke-miterlimit="10" stroke-linecap="square" />
-                        </svg>
-                    </div>
-                    <div class="subFolder">
-                        <div>Extension</div>
-                        <div>Security</div>
-                    </div>
-                </div>
-                <div class="folder">
-                    <div class="titleFolder">Streaming<svg class="arrowSvg" width="8" height="12" viewBox="0 0 8 12"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
-                                stroke-miterlimit="10" stroke-linecap="square" />
-                        </svg>
-                    </div>
-                    <div class="subFolder">
-                        <div>Streaming</div>
-                        <div>Video</div>
-                        <div>Audio</div>
-                    </div>
-                </div>
-                <div class="folder">
-                    <div class="titleFolder">Phone<svg class="arrowSvg" width="8" height="12" viewBox="0 0 8 12"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
-                                stroke-miterlimit="10" stroke-linecap="square" />
-                        </svg>
-                    </div>
-                </div>
+                <ul class="folder">
+                    <li id="parent">
+                        <div class="title">Informatics<svg class="arrowSvg" width="8" height="12" viewBox="0 0 8 12"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
+                                    stroke-miterlimit="10" stroke-linecap="square" />
+                            </svg></div>
+                        <ul class="sub-folder">
+                            <li id="osint">OSINT</li>
+                            <li>Application</li>
+                            <li>Security</li>
+                        </ul>
+                    </li>
+                    <li id="parent">
+                        <div class="title">Browser<svg class="arrowSvg" width="8" height="12" viewBox="0 0 8 12"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
+                                    stroke-miterlimit="10" stroke-linecap="square" />
+                            </svg></div>
+                        <ul class="sub-folder">
+                            <li>Extension</li>
+                            <li>Customization</li>
+                            <li>Security</li>
+                        </ul>
+                    </li>
+                    <li id="parent">
+                        <div class="title">Streaming<svg class="arrowSvg" width="8" height="12" viewBox="0 0 8 12"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#FFFFFF" stroke-width="2"
+                                    stroke-miterlimit="10" stroke-linecap="square" />
+                            </svg></div>
+                        <ul class="sub-folder">
+                            <li>streaming</li>
+                            <li>video</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
             <div class="downloadBtn"><button>Download</button></div>
         </div>

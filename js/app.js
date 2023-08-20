@@ -71,6 +71,30 @@ const toggleMarkdownView = (action) => {
 };
 
 // --------------------------------------------------------------------
+// --------------------- Add folders from json ------------------------
+// --------------------------------------------------------------------
+// const folders = document.querySelector("folders");
+
+// fetch("/data/folders name.json")
+//   .then((response) => response.json())
+//   .then((foldersName) => {
+//     for (const parent in foldersName) {
+//       let childTag = [];
+//       if (typeof foldersName[parent] === "object") {
+//         // console.log(parent);
+//         const parentTag = parent;
+//         for (const child in foldersName[parent]) {
+//           // console.log("- ", child);
+//           childTag.push(child);
+//         }
+//         console.log(parentTag, childTag);
+//       }
+//       // console.log(containerTagForFolders);
+//     }
+//     // folders.innerHTML = foldersName;
+//   });
+// folders.insertAdjacentHTML(beforeend, containerTagForFolders);
+// --------------------------------------------------------------------
 // ------------------------- Hamburger Menu ---------------------------
 // --------------------------------------------------------------------
 
@@ -89,41 +113,60 @@ hButtonClose.addEventListener("click", () => {
 // --------------------------------------------------------------------
 // ----------------------------- Folder -------------------------------
 // --------------------------------------------------------------------
-const titleFolder = document.querySelectorAll(".titleFolder");
+const titles = document.querySelectorAll(".title");
 
-titleFolder.forEach((title) => {
-  title.addEventListener("click", () => {
-    const parentFolder = title.parentElement;
-    const subFolder = parentFolder.querySelector(".subFolder");
+titles.forEach((title) => {
+  title.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const parent = title.parentElement;
+    const subFolder = parent.querySelector(".sub-folder");
+    const arrowSvg = parent.querySelector(".arrowSvg");
 
-    parentFolder.classList.toggle("active");
-    titleFolder.forEach((title) => {
-      title.classList.remove("titleActive");
-    });
-    title.classList.add("titleActive");
-    if (subFolder.style.display === "flex") {
+    if (subFolder.style.display === "block") {
       subFolder.style.display = "none";
+      arrowSvg.style.transform = "none";
     } else {
-      subFolder.style.display = "flex";
+      subFolder.style.display = "block";
+      arrowSvg.style.transform = "rotate(90deg)";
     }
   });
 });
+
 md("/data/welcome.md");
+
+// --------------------
 const welcome = document.querySelector("#summary h1");
 welcome.addEventListener("click", () => {
   if (window.innerWidth <= 780) {
     toggleMarkdownView("hide");
   }
+  subFolders.forEach((subFolder) => {
+    subFolder.classList.remove("subFolderActive");
+  });
+  document.querySelectorAll(".title").forEach((title) => {
+    title.classList.remove("titleActive");
+  });
   md("/data/welcome.md");
 });
-const subFolders = document.querySelectorAll(".subFolder div");
+// -----------
+
+const subFolders = document.querySelectorAll(".sub-folder li");
 
 subFolders.forEach((subFolder) => {
   subFolder.addEventListener("click", () => {
+    const p_1 = subFolder.parentElement;
+    const p_2 = p_1.parentElement;
+    const title_ = p_2.querySelector(".title");
+
     subFolders.forEach((subFolder) => {
       subFolder.classList.remove("subFolderActive");
     });
+    document.querySelectorAll(".title").forEach((title) => {
+      title.classList.remove("titleActive");
+    });
+
     subFolder.classList.add("subFolderActive");
+    title_.classList.add("titleActive");
 
     if (window.innerWidth <= 780) {
       toggleMarkdownView("hide");
@@ -132,10 +175,7 @@ subFolders.forEach((subFolder) => {
     const content = subFolder.textContent.toLowerCase();
     const p1 = subFolder.parentElement;
     const p2 = p1.parentElement;
-    const title = p2
-      .querySelector(".titleFolder")
-      .textContent.trim()
-      .toLowerCase();
+    const title = p2.querySelector(".title").textContent.trim().toLowerCase();
     let data = `/data/${title}/${content}.md`;
     md(data);
   });

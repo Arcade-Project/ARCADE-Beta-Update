@@ -158,7 +158,17 @@ nav {
   border-radius: 20px;
   background-color: #3d3d3d;
 }
-.titleFolder {
+
+#parent {
+  padding: 0;
+}
+#parent:hover {
+  background-color: unset;
+}
+.folder {
+  padding: 0;
+}
+.title {
   display: flex;
   align-items: center;
   margin: 6px 0 6px 0;
@@ -166,16 +176,10 @@ nav {
 
   border-radius: 10px;
 }
-.titleFolder:hover {
+.title:hover {
   background-color: var(--background-3);
 }
-.arrowSvg {
-  display: flex;
-  margin-left: auto;
-  width: 15px;
-  transition: all 0.2s;
-}
-.subFolder {
+.sub-folder {
   display: none;
 
   padding-left: 1em;
@@ -186,28 +190,30 @@ nav {
   flex-direction: column;
   color: var(--primary-color);
 }
-.subFolder div {
+.sub-folder li {
   color: var(--white);
   padding: 8px 0 8px 10px;
   border-radius: 10px;
 }
-.subFolder div:hover {
+.sub-folder li:not(:last-child) {
+  margin-bottom: 6px;
+}
+.sub-folder li:hover {
   background-color: var(--background-3);
 }
+
+.arrowSvg {
+  display: flex;
+  margin-left: auto;
+  width: 15px;
+  transition: all 0.2s;
+}
+/* active class */
 .subFolderActive {
   background-color: var(--background-3);
 }
-/* Active Class */
-.folderFocus {
-  color: var(--primary-color);
-  background-color: var(--purple-background);
-}
 .folderFocus .arrowSvg path {
   stroke: var(--primary-color);
-}
-.folder.active .arrowSvg {
-  transform: rotate(90deg);
-  transition: all 0.2s;
 }
 .titleActive {
   background-color: var(--purple-background);
@@ -219,6 +225,7 @@ nav {
 .titleActive:hover {
   background-color: var(--purple-background);
 }
+
 .downloadBtn button {
   color: var(--primary-color);
   font-size: 1.2em;
