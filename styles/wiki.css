@@ -184,11 +184,10 @@ nav {
 
   padding-left: 1em;
   margin: 4px 0 4px 10px;
-  row-gap: 6px;
 
   border-left: solid 2px var(--background-3);
-  flex-direction: column;
   color: var(--primary-color);
+  animation: subFolderAnim 0.3s;
 }
 .sub-folder li {
   color: var(--white);
@@ -265,6 +264,23 @@ nav {
   border-radius: 20px;
   background-color: #3d3d3d;
 }
+/* Animation */
+@keyframes subFolderAnim {
+  0% {
+    opacity: 0;
+    border-left: solid 2px #00000000;
+    padding-left: 3em;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    padding-left: 1em;
+    border-left: solid 2px var(--background-3);
+  }
+}
+
 /* ---------------------------------------------------------- */
 /* MarkDown */
 /* ---------------------------------------------------------- */
