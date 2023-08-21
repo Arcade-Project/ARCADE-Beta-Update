@@ -120,14 +120,19 @@ titles.forEach((title) => {
     e.stopPropagation();
     const parent = title.parentElement;
     const subFolder = parent.querySelector(".sub-folder");
-    const arrowSvg = parent.querySelector(".arrowSvg");
 
-    if (subFolder.style.display === "block") {
-      subFolder.style.display = "none";
-      arrowSvg.style.transform = "none";
+    if (subFolder) {
+      const arrowSvg = parent.querySelector(".arrowSvg");
+
+      if (subFolder.style.display === "block") {
+        subFolder.style.display = "none";
+        arrowSvg.style.transform = "none";
+      } else {
+        subFolder.style.display = "block";
+        arrowSvg.style.transform = "rotate(90deg)";
+      }
     } else {
-      subFolder.style.display = "block";
-      arrowSvg.style.transform = "rotate(90deg)";
+      alert("Contents not found");
     }
   });
 });
@@ -173,7 +178,6 @@ subFolders.forEach((subFolder) => {
     }
 
     const content = subFolder.textContent.toLowerCase().replace("?", "");
-    console.log(content);
     const p1 = subFolder.parentElement;
     const p2 = p1.parentElement;
     const title = p2
