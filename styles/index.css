@@ -347,7 +347,9 @@ section h1 {
   #btn-dl a {
     top: unset;
     bottom: 20px;
+    width: unset;
     right: unset;
+    padding: none;
     transform: none;
   }
   .btn-menu {
@@ -417,20 +419,24 @@ section h1 {
     display: none;
     animation: sublist 0.25s ease-out forwards;
   }
-  .sublist li {
+
+  .sublist li:not(:nth-last-child(-n + 2)) {
+    margin-bottom: 5px;
+  }
+  .sublist li a {
     display: flex;
-    align-items: center;
     border-radius: 12px;
-    height: 40px;
+    align-items: center;
     width: 270px;
-    margin: 5px 0;
-    padding-left: 10px;
+    padding: 0.5em 0 0.5em 10px;
   }
   .sublist li:first-child {
+    display: block;
+    border-radius: 12px;
     margin-top: 100px;
-    display: flex;
+    background-color: var(--light-grey);
   }
-  .sublist li:nth-child(n + 1):nth-child(-n + 5):hover {
+  .sublist li a:nth-child(n + 1):nth-child(-n + 5):hover {
     color: var(--white);
     background-color: #444444;
   }
@@ -463,14 +469,15 @@ section h1 {
     margin: 55% auto 0 auto;
     width: 90%;
   }
-  .sublist li:first-child {
-    display: block;
-    display: flex;
-    background-color: var(--light-grey);
-  }
 }
 
 @media screen and (max-width: 330px) {
+  .sublist li {
+    width: 230px;
+  }
+  .navlinks {
+    width: 280px;
+  }
   @keyframes borderPadding {
     0% {
       padding-left: 0px;
@@ -495,9 +502,4 @@ section h1 {
       right: 30px;
     }
   }
-  .sublist li {
-    width: 230px;
-  }
-  .navlinks {
-    width: 280px;
-  }
+}
