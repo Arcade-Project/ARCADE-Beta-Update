@@ -1,0 +1,133 @@
+/* ---------------------------------------------- */
+/* Color Tags */
+/* ---------------------------------------------- */
+color-p {
+  color: var(--primary-color);
+}
+color-o {
+  color: var(--secondary-color);
+}
+/* ---------------------------------------------- */
+/* ---------------------------------------------- */
+hr {
+  border: 1px solid var(--background-3);
+  margin: 10px 0;
+}
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding: 5px 5px 5px 10px;
+}
+details {
+  color: white;
+  border-radius: 20px;
+  padding: 1em;
+  border: solid 2px var(--background-3);
+}
+summary {
+  display: flex;
+  color: var(--primary-color);
+  width: 100%;
+  user-select: none;
+}
+.arrowSvgSummary {
+  transition: all 0.2s;
+}
+.svgCnt {
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+  padding-left: 1em;
+}
+details > :not(summary) {
+  margin-top: 1em;
+}
+.markdown-content h1 {
+  font-size: 1.9em;
+  font-weight: 600;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th,
+td {
+  padding: 0.2em;
+  border: solid 1px var(--background-3);
+}
+thead tr,
+th {
+  background-color: #1d1d1d;
+}
+.markdown-content img {
+  width: 100%;
+  border-radius: 20px;
+}
+code {
+  display: block;
+  width: auto;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: var(--background-3);
+}
+.markdown-content ul:not(ul ul) {
+  padding: 0;
+}
+.markdown-content li {
+  list-style: inside;
+}
+.markdown-content li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.markdown-content ol {
+  padding-left: 1.5em;
+}
+.markdown-content ol li {
+  list-style: decimal;
+}
+.markdown-content li::marker {
+  color: #474747;
+}
+.markdown-content ul ul,
+.markdown-content ol ol {
+  border-left: solid 1px var(--background-3);
+  margin: 0;
+}
+.markdown-content a {
+  color: var(--primary-color);
+  width: fit-content;
+  font-weight: bold;
+  display: inline-block;
+}
+.markdown-content a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s;
+}
+.markdown-content a:hover::after {
+  width: 100%;
+}
+
+/* Disclaimer ----------------------------- */
+.disclaimer {
+  border-radius: 20px;
+  border: 3px solid var(--secondary-color);
+  padding: 1em;
+}
+.disclaimer a {
+  color: var(--secondary-color);
+  width: fit-content;
+  font-weight: bold;
+  display: inline-block;
+}
+.disclaimer a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.3s;
+}
