@@ -165,6 +165,9 @@ nav {
 #parent:hover {
   background-color: unset;
 }
+.welcome {
+  cursor: pointer;
+}
 .folder {
   padding: 0;
 }
@@ -175,11 +178,14 @@ nav {
   padding: 8px 10px 8px 10px;
 
   border-radius: 10px;
+
+  cursor: pointer;
 }
 .title:hover {
   background-color: var(--background-3);
 }
 .sub-folder {
+  cursor: pointer;
   display: none;
 
   padding-left: 1em;
@@ -253,14 +259,14 @@ nav {
   border-radius: 20px;
   background-color: #3d3d3d;
 }
-.markdown-content::-webkit-scrollbar {
+.scrollbox::-webkit-scrollbar {
   width: 10px;
 }
-.markdown-content::-webkit-scrollbar-track {
+.scrollbox::-webkit-scrollbar-track {
   border-radius: 20px;
   background: #222222;
 }
-.markdown-content::-webkit-scrollbar-thumb {
+.scrollbox::-webkit-scrollbar-thumb {
   border-radius: 20px;
   background-color: #3d3d3d;
 }
@@ -285,6 +291,12 @@ nav {
 /* MarkDown */
 /* ---------------------------------------------------------- */
 
+.scrollbox {
+  max-height: calc(100% - 2em);
+  overflow-y: auto;
+  max-width: 96%;
+  margin: 1em auto 1em auto;
+}
 .contents {
   margin: 10px;
   background-color: var(--background-2);
@@ -294,13 +306,10 @@ nav {
 .markdown-content {
   font-family: "Inter";
 
-  overflow-y: auto;
   color: white;
 
-  margin: 1em auto 1em auto;
-
   max-width: 50%;
-  max-height: calc(100% - 2em);
+  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
@@ -312,7 +321,7 @@ nav {
 @media screen and (max-width: 1100px) {
   .markdown-content {
     max-width: unset;
-    width: 90%;
+    width: 96%;
   }
 }
 @media screen and (max-width: 780px) {

@@ -15,7 +15,7 @@ Whether you're a seasoned expert or an enthusiastic beginner, we encourage you t
 
 ## Introduction
 
-==purple{**O**pen-**S**ource **Int**elligence} (OSINT) refers to the practice of collecting, analyzing and using information from publicly available sources to gather intelligence and information.
+==purple{Open-Source Intelligence} (OSINT) refers to the practice of collecting, analyzing and using information from publicly available sources to gather intelligence and information.
 
 This approach involves access to a wide range of data, including online publications, social media, government reports, public archives and other freely accessible resources.
 
