@@ -13,7 +13,7 @@ We encourage you to respect the copyright laws of your country and support conte
 > ### Movie
 
 - [( Sflix )](https://sflix.to/) 🇬🇧 subtitle ➯ 🇨🇵
-- [( Azm )](https://azm.to/) <font color="red">High Protection</font> 🇬🇧
+- [( Azm )](https://azm.to/) :red{High Protection} 🇬🇧
 - [( Watch Free )](https://watch-free.tv/) 🇬🇧 subtitle ➯ 🇨🇵
 - [( 123moviesGo )](https://www1.123moviesgo.ac/) 🇬🇧 subtitle ➯ 🇨🇵
 - [( Himovies )](https://himovies.sx/) 🇬🇧 subtitle ➯ 🇨🇵
