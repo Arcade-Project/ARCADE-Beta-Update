@@ -1,22 +1,3 @@
-/* ---------------------------------------------- */
-/* Color Tags */
-/* ---------------------------------------------- */
-color-p {
-  color: var(--primary-color);
-}
-color-o {
-  color: var(--secondary-color);
-}
-/* ---------------------------------------------- */
-/* ---------------------------------------------- */
-hr {
-  border: 1px solid var(--background-3);
-  margin: 10px 0;
-}
-blockquote {
-  border-left: 4px solid var(--primary-color);
-  padding: 5px 5px 5px 10px;
-}
 details {
   color: white;
   border-radius: 20px;
@@ -41,9 +22,17 @@ summary {
 details > :not(summary) {
   margin-top: 1em;
 }
+hr {
+  border: 1px solid var(--background-3);
+  margin: 10px 0;
+}
 .markdown-content h1 {
   font-size: 1.9em;
   font-weight: 600;
+}
+.markdown-content img {
+  width: 100%;
+  border-radius: 20px;
 }
 table {
   border-collapse: collapse;
@@ -54,13 +43,9 @@ td {
   padding: 0.2em;
   border: solid 1px var(--background-3);
 }
-thead tr,
+blockquote thead tr,
 th {
   background-color: #1d1d1d;
-}
-.markdown-content img {
-  width: 100%;
-  border-radius: 20px;
 }
 code {
   display: block;
@@ -68,6 +53,119 @@ code {
   padding: 1em;
   border-radius: 10px;
   background-color: var(--background-3);
+}
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding: 5px 5px 5px 10px;
+}
+blockquote p:not(:last-child) {
+  margin-bottom: 10px;
+}
+blockquote svg {
+  flex-shrink: 0;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+}
+blockquote .iconCtn {
+  margin-right: 10px;
+}
+blockquote.settings h3,
+blockquote.check h3,
+blockquote.warning h3,
+blockquote.bug h3,
+blockquote.info h3,
+blockquote.note h3,
+blockquote.quote h3,
+blockquote.default h3 {
+  display: flex;
+  margin-bottom: 1em;
+  padding: 0;
+}
+blockquote.settings,
+blockquote.check,
+blockquote.warning,
+blockquote.bug,
+blockquote.info,
+blockquote.note,
+blockquote.quote,
+blockquote.default {
+  border-radius: 10px;
+  padding: 1em;
+}
+blockquote.default {
+  border: solid 1px var(--primary-color);
+  background-color: #5c14e13c;
+}
+blockquote.default h3 {
+  color: var(--primary-color);
+}
+blockquote.quote {
+  border: solid 1px #9f9f9f;
+  background-color: #6363632f;
+}
+blockquote.quote svg {
+  fill: #9f9f9f;
+}
+blockquote.quote h3 {
+  color: #c1c1c1;
+}
+blockquote.note,
+blockquote.info {
+  border: solid 1px #2f63ffc9;
+  background-color: #2f4eff2f;
+}
+blockquote.info svg {
+  stroke: #2f63ffc9;
+}
+blockquote.note h3,
+blockquote.info h3 {
+  color: #2f63ffc9;
+}
+blockquote.bug,
+blockquote.warning {
+  border: solid 1px #ff2f2fc9;
+  background-color: #ff2f2f2f;
+}
+blockquote.warning svg {
+  stroke: #ff2f2fc9;
+}
+blockquote.bug h3,
+blockquote.warning h3 {
+  color: #ff2f2fc9;
+}
+blockquote.check {
+  border: solid 1px #15ad27;
+  background-color: #15ad2727;
+}
+blockquote.check svg {
+  stroke: #15ad27;
+}
+blockquote.check h3 {
+  color: #15ad27;
+}
+blockquote.settings {
+  border: solid 1px #c3136e;
+  background-color: #c3136e37;
+}
+blockquote.settings svg {
+  stroke: #c3136e;
+}
+blockquote.settings h3 {
+  color: #c3136e;
+}
+mark {
+  color: white;
+  background-color: #e0d90d;
+  padding: 0.1em 0.4em;
+  border-radius: 0.8em 0.3em;
+  text-shadow: 0 0 0.75em black, 0 0 0.75em black;
+}
+.custom-space {
+  width: 0.4em;
+  display: inline-block;
 }
 .markdown-content ul:not(ul ul) {
   padding: 0;
@@ -109,25 +207,4 @@ code {
 }
 .markdown-content a:hover::after {
   width: 100%;
-}
-
-/* Disclaimer ----------------------------- */
-.disclaimer {
-  border-radius: 20px;
-  border: 3px solid var(--secondary-color);
-  padding: 1em;
-}
-.disclaimer a {
-  color: var(--secondary-color);
-  width: fit-content;
-  font-weight: bold;
-  display: inline-block;
-}
-.disclaimer a::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background: var(--secondary-color);
-  transition: width 0.3s;
 }
