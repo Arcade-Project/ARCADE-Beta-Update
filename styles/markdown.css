@@ -74,6 +74,7 @@ blockquote.bug h3,
 blockquote.info h3,
 blockquote.note h3,
 blockquote.quote h3,
+blockquote.example h3,
 blockquote.default h3 {
   display: flex;
   margin-bottom: 1em;
@@ -86,19 +87,20 @@ blockquote.bug,
 blockquote.info,
 blockquote.note,
 blockquote.quote,
+blockquote.example,
 blockquote.default {
   border-radius: 10px;
   padding: 1em;
 }
 blockquote.default {
-  border: solid 1px var(--primary-color);
+  border: none;
   background-color: #5c14e13c;
 }
 blockquote.default h3 {
   color: var(--primary-color);
 }
 blockquote.quote {
-  border: solid 1px #9f9f9f;
+  border: none;
   background-color: #6363632f;
 }
 blockquote.quote svg {
@@ -109,7 +111,7 @@ blockquote.quote h3 {
 }
 blockquote.note,
 blockquote.info {
-  border: solid 1px #2f63ffc9;
+  border: none;
   background-color: #2f4eff2f;
 }
 blockquote.info svg {
@@ -121,7 +123,7 @@ blockquote.info h3 {
 }
 blockquote.bug,
 blockquote.warning {
-  border: solid 1px #ff2f2fc9;
+  border: none;
   background-color: #ff2f2f2f;
 }
 blockquote.warning svg {
@@ -132,7 +134,7 @@ blockquote.warning h3 {
   color: #ff2f2fc9;
 }
 blockquote.check {
-  border: solid 1px #15ad27;
+  border: none;
   background-color: #15ad2727;
 }
 blockquote.check svg {
@@ -141,8 +143,18 @@ blockquote.check svg {
 blockquote.check h3 {
   color: #15ad27;
 }
+blockquote.example {
+  border: none;
+  background-color: #6915ad27;
+}
+blockquote.example svg {
+  stroke: #6915ad;
+}
+blockquote.example h3 {
+  color: #6915ad;
+}
 blockquote.settings {
-  border: solid 1px #c3136e;
+  border: none;
   background-color: #c3136e37;
 }
 blockquote.settings svg {
