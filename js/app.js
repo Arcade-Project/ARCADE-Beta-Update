@@ -7,7 +7,7 @@ const colorMap = {
   purple: "#5c14e1",
   orange: "#ff322f",
   green: "#7CA87F",
-  yellow: "##e0d90d",
+  yellow: "#e0d90d",
 };
 
 const icons = {
@@ -33,28 +33,48 @@ const md = (d) => {
     .then((markdown) => {
       const coloredText = {
         type: "lang",
-
         filter: (text) => {
-          return text.replace(/:(\w+)\{(.*?)\}/g, (_, color, match) => {
-            const selectedColor = colorMap[color] || color; // Utilisez la couleur personnalisée si définie, sinon utilisez le nom de couleur fourni
+          const codeBlocks = [];
 
+          text = text.replace(/```[\s\S]*?```/g, (match) => {
+            codeBlocks.push(match);
+            return `%%%CODEBLOCK%%%`;
+          });
+
+          text = text.replace(/:(\w+)\{(.*?)\}/g, (_, color, match) => {
+            const selectedColor = colorMap[color] || color;
             return `<span style="color: ${selectedColor};">${match}</span>`;
           });
+
+          text = text.replace(/%%%CODEBLOCK%%%/g, () => {
+            return codeBlocks.shift();
+          });
+
+          return text;
         },
       };
 
       const highlighter = {
-        type: "output",
-
+        type: "lang",
         filter: (text) => {
+          const codeBlocks = [];
+
+          text = text.replace(/```[\s\S]*?```/g, (match) => {
+            codeBlocks.push(match);
+            return `%%%CODEBLOCK%%%`;
+          });
+
           text = text.replace(/\=\=(\w+)\{([^]*?)\}/g, (_, color, match) => {
             const selectedColor = colorMap[color] || color;
-
             return `<mark style="background-color: ${selectedColor};">${match}</mark>`;
           });
 
           text = text.replace(/==([^]*?)==/g, (_, match) => {
             return `<mark>${match}</mark>`;
+          });
+
+          text = text.replace(/%%%CODEBLOCK%%%/g, () => {
+            return codeBlocks.shift();
           });
 
           return text;
@@ -64,15 +84,29 @@ const md = (d) => {
       const customBlockQuote = {
         type: "output",
         filter: (text) => {
-          return text.replace(
+          const codeBlocks = [];
+
+          text = text.replace(
+            /<code(?:\s+class=".*?")?\s*>([\s\S]*?)<\/code>/g,
+            (match) => {
+              codeBlocks.push(match);
+              return "%%%CODEBLOCK%%%";
+            }
+          );
+
+          text = text.replace(
             /:::(\w+)\s*(.*?)\n(.*?):::/gs,
             (_, className, title, content) => {
               const icon = icons[className] || "";
-              const iconCtnClass = icon ? "iconCtn" : ""; // Ajout de la classe uniquement si une icône existe
-
+              const iconCtnClass = icon ? "iconCtn" : "";
               return `<blockquote class="${className}"><h3><span class="${iconCtnClass}">${icon}</span>${title.trim()}</h3><p>${content.trim()}</p></blockquote>`;
             }
           );
+          text = text.replace(/%%%CODEBLOCK%%%/g, () => {
+            return `${codeBlocks.shift()}`;
+          });
+
+          return text;
         },
       };
 
@@ -80,25 +114,58 @@ const md = (d) => {
         type: "output",
 
         filter: (text) => {
-          return text.replace(
+          const codeBlocks = [];
+
+          text = text.replace(
+            /<code(?:\s+class=".*?")?\s*>([\s\S]*?)<\/code>/g,
+            (match) => {
+              codeBlocks.push(match);
+              return "%%%CODEBLOCK%%%";
+            }
+          );
+
+          text = text.replace(
             /!!!space!!!/g,
 
             '<span class="custom-space"></span>'
           );
+          text = text.replace(/%%%CODEBLOCK%%%/g, () => {
+            return `${codeBlocks.shift()}`;
+          });
+
+          return text;
         },
       };
       const expandable = {
         type: "output",
         filter: (text) => {
-          return text.replace(
+          const codeBlocks = [];
+
+          text = text.replace(
+            /<code(?:\s+class=".*?")?\s*>([\s\S]*?)<\/code>/g,
+            (match) => {
+              codeBlocks.push(match);
+              return "%%%CODEBLOCK%%%";
+            }
+          );
+
+          text = text.replace(
             /\[exp\]\s*(?:\[title\]\s*(.*?)\s*\[\/title\])?\s*(.*?)\s*\[\/exp\]/gs,
             (_, title, content) => {
               const titleHtml = title
                 ? `<summary><h3>${title.trim()}</h3><div class="svgCnt"><svg class="arrowSvgSummary" width="14" height="18" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: none;"> <path d="M2.00195 2L6.00195 6L2.00195 10" stroke="#5c14e1" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"></path></svg></div></summary>`
                 : "";
-              return `<details>${titleHtml}<p>${content.trim()}</p></details>`;
+
+              const detailsTag = `<details>${titleHtml}<p>${content.trim()}</p></details>`;
+
+              return detailsTag;
             }
           );
+          text = text.replace(/%%%CODEBLOCK%%%/g, () => {
+            return `${codeBlocks.shift()}`;
+          });
+
+          return text;
         },
       };
 
@@ -106,9 +173,9 @@ const md = (d) => {
         extensions: [
           coloredText,
           highlighter,
-          customBlockQuote,
           customSpace,
           expandable,
+          customBlockQuote,
         ],
         tables: true,
         tasklists: true,
@@ -120,10 +187,10 @@ const md = (d) => {
 
       addBlankTargetToLinks();
 
-      const summary = document.querySelectorAll("summary");
+      const summary = markdownContent.querySelectorAll("summary");
 
       summary.forEach((summary) => {
-        const detailsElements = document.querySelectorAll("details");
+        const detailsElements = markdownContent.querySelectorAll("details");
 
         detailsElements.forEach((detailsElement) => {
           const arrowSvgSummary =
@@ -135,6 +202,37 @@ const md = (d) => {
               arrowSvgSummary.style.transform = "none";
             }
           });
+        });
+      });
+
+      const codeTags = markdownContent.querySelectorAll("code");
+
+      codeTags.forEach((codeTag) => {
+        const copyToClipboard = '<div class="copyCtn"><span>copy</span></div>';
+        codeTag.insertAdjacentHTML("beforeend", copyToClipboard);
+      });
+      const copyCtns = markdownContent.querySelectorAll(".copyCtn");
+      copyCtns.forEach((copyCtn) => {
+        copyCtn.addEventListener("click", () => {
+          const parentContent = copyCtn.parentElement.cloneNode(true);
+          const copyElement = parentContent.querySelector(".copyCtn");
+          copyElement.remove();
+
+          const tempTextArea = document.createElement("textarea");
+          tempTextArea.value = parentContent.textContent;
+          document.body.appendChild(tempTextArea);
+          tempTextArea.select();
+
+          try {
+            document.execCommand("copy");
+          } catch (err) {
+            console.error(
+              "Impossible de copier le contenu dans le presse-papiers",
+              err
+            );
+          }
+
+          document.body.removeChild(tempTextArea);
         });
       });
     });

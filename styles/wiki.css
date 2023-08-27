@@ -246,6 +246,12 @@ nav {
   box-shadow: 0px 0px 18px 0px #140d21, 0px 0px 18px 2px #140d21 inset;
   background-color: var(--purple-background);
 }
+.downloadBtn button:active {
+  color: var(--purple-background);
+  box-shadow: 0px 0px 18px 0px var(--primary-color),
+    0px 0px 18px 2px var(--primary-color) inset;
+  background-color: var(--primary-color);
+}
 
 /* Scroll bar */
 .folders::-webkit-scrollbar {

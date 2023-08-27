@@ -9,6 +9,7 @@ summary {
   color: var(--primary-color);
   width: 100%;
   user-select: none;
+  cursor: pointer;
 }
 .arrowSvgSummary {
   transition: all 0.2s;
@@ -47,13 +48,7 @@ blockquote thead tr,
 th {
   background-color: #1d1d1d;
 }
-code {
-  display: block;
-  width: auto;
-  padding: 1em;
-  border-radius: 10px;
-  background-color: var(--background-3);
-}
+
 blockquote {
   border-left: 4px solid var(--primary-color);
   padding: 5px 5px 5px 10px;
@@ -207,4 +202,44 @@ mark {
 }
 .markdown-content a:hover::after {
   width: 100%;
+}
+code {
+  position: relative;
+  display: block;
+  width: auto;
+  padding: 1.8em;
+  border-radius: 10px;
+  background-color: var(--background-3);
+  white-space: pre-wrap;
+}
+.copyCtn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  height: fit-content;
+  width: min-content;
+  user-select: none;
+  line-height: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inter;
+  padding: 0.2em;
+  border-radius: 8px;
+}
+.copyCtn span {
+  color: #9c9c9c;
+}
+.copyCtn:hover {
+  background-color: #4f100f;
+}
+.copyCtn:hover span {
+  color: #ff322f;
+  font-weight: 600;
+}
+.copyCtn:active span {
+  color: #4f100f;
+  font-weight: 600;
+}
+.copyCtn:active {
+  background-color: #ff322f;
 }
