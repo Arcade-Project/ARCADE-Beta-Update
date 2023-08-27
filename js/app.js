@@ -1,6 +1,4 @@
-// --------------------------------------------------------------------
-// ---------------------------- Fonction ------------------------------
-// --------------------------------------------------------------------
+// FONCTION
 const colorMap = {
   red: "red",
   blue: "blue",
@@ -237,11 +235,9 @@ const md = (d) => {
       });
     });
 };
-// --------------------------------------------
 const reloadFromServer = () => {
   location.reload(true);
 };
-// --------------------------------------------
 const addBlankTargetToLinks = () => {
   const container = document.querySelector(".markdown-content");
 
@@ -253,7 +249,6 @@ const addBlankTargetToLinks = () => {
     }
   });
 };
-// --------------------------------------------
 const toggleMarkdownView = (action) => {
   if (action === "show") {
     mdContent.style.display = "none";
@@ -272,9 +267,7 @@ const toggleMarkdownView = (action) => {
   }
 };
 
-// --------------------------------------------------------------------
-// --------------------- Add folders from json ------------------------
-// --------------------------------------------------------------------
+// ADD FOLDERS FROM JSON
 // const folders = document.querySelector("folders");
 
 // fetch("/data/folders name.json")
@@ -296,9 +289,8 @@ const toggleMarkdownView = (action) => {
 //     // folders.innerHTML = foldersName;
 //   });
 // folders.insertAdjacentHTML(beforeend, containerTagForFolders);
-// --------------------------------------------------------------------
-// ------------------------- Hamburger Menu ---------------------------
-// --------------------------------------------------------------------
+
+// MENU
 
 const hButton = document.querySelector(".hButton");
 const hButtonClose = document.querySelector(".hButtonClose");
@@ -312,9 +304,7 @@ hButtonClose.addEventListener("click", () => {
   toggleMarkdownView("hide");
 });
 
-// --------------------------------------------------------------------
-// ----------------------------- Folder -------------------------------
-// --------------------------------------------------------------------
+// FOLDER
 const titles = document.querySelectorAll(".title");
 
 titles.forEach((title) => {
@@ -341,7 +331,6 @@ titles.forEach((title) => {
 
 md("/data/welcome.md");
 
-// --------------------
 const welcome = document.querySelector("#summary h1");
 welcome.addEventListener("click", () => {
   if (window.innerWidth <= 780) {
@@ -355,7 +344,6 @@ welcome.addEventListener("click", () => {
   });
   md("/data/welcome.md");
 });
-// -----------
 
 const subFolders = document.querySelectorAll(".sub-folder li");
 
@@ -392,6 +380,7 @@ subFolders.forEach((subFolder) => {
   });
 });
 
+// RELOADER
 window.addEventListener("resize", () => {
   if (window.innerWidth < 780) {
     window.addEventListener("resize", function checkWidth() {
